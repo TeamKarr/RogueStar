@@ -1,0 +1,53 @@
+using Unity.Collections;
+using UnityEngine;
+
+public class EnemyBrain : MonoBehaviour
+{
+    // Start is called before the first frame update
+
+    // list of states the enemny could be in
+
+    // Each state has actions
+
+    // Wander State
+    // Chase State -can shoot
+    // Attack State -if motion is part of attacking
+    public int DefaultState = 0;
+
+    [ReadOnly] public int CurrentState = 0;
+
+    private State[] states;
+
+
+    void Start()
+    {
+        CurrentState = DefaultState;
+        states = GetComponents<State>();
+        if (states != null)
+        {
+            foreach (var state in states)
+            {
+                Debug.Log(state);
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // run current state
+        if (states != null)
+        {
+            states[CurrentState].Action(); // gets current state
+        }
+    }
+
+    public abstract class State : MonoBehaviour
+    {
+        public GameObject Player;
+
+        public abstract void Action(); // ran everytick when in this state;
+
+
+    }
+}
