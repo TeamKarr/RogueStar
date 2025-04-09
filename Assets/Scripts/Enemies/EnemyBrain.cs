@@ -42,6 +42,12 @@ public class EnemyBrain : MonoBehaviour
         }
     }
 
+    public void setState(int i)
+    {
+        if (i >= 0 && i < states.Length)
+            CurrentState = i;
+    }
+
     public abstract class State : MonoBehaviour
     {
         public GameObject Player;
@@ -49,5 +55,14 @@ public class EnemyBrain : MonoBehaviour
         public abstract void Action(); // ran everytick when in this state;
 
 
+    }
+
+    public void stopMoving()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 }

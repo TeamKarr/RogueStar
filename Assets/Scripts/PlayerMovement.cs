@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Debug.Log("Speed: " + rb.velocity.magnitude + " max: " + maxSpeed.getvalue());
+        //Debug.Log("Speed: " + rb.velocity.magnitude + " max: " + maxSpeed.getvalue());
         if (rb.velocity.magnitude > maxSpeed.getvalue())
         {
             // Clamp the velocity magnitude
