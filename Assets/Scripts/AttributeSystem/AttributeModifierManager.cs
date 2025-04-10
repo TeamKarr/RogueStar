@@ -14,12 +14,10 @@ public class AttributeModifierManager : MonoBehaviour
 
     private bool active = false;
 
-    private Collision2D collision2D;
 
     void Start()
     {
         addModifiers ();
-        collision2D = GetComponent<Collision2D> ();
     }
 
     // Update is called once per frame
@@ -63,32 +61,32 @@ public class AttributeModifierManager : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!active && onCollision)
-        {
-            if (target.Equals(collision.gameObject.GetComponent<AttributeManager>()))
-            {
-                active = true;
-                Debug.Log("Object entered trigger: " + collision.gameObject.name);
-                enableModifiers();
-            }
-        }
+    //public void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (!active && onCollision)
+    //    {
+    //        if (target.Equals(collision.gameObject.GetComponent<AttributeManager>()))
+    //        {
+    //            active = true;
+    //            Debug.Log("Object entered trigger: " + collision.gameObject.name);
+    //            enableModifiers();
+    //        }
+    //    }
        
-    }
+    //}
 
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (active) {
-            if (target.Equals(collision.gameObject.GetComponent<AttributeManager>()))
-            {
-                active = false;
-                Debug.Log("Object exited trigger: " + collision.gameObject.name);
-                disableModifiers();
-            }
-        }
+    //public void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (active) {
+    //        if (target.Equals(collision.gameObject.GetComponent<AttributeManager>()))
+    //        {
+    //            active = false;
+    //            Debug.Log("Object exited trigger: " + collision.gameObject.name);
+    //            disableModifiers();
+    //        }
+    //    }
         
-    }
+    //}
 
     [System.Serializable]
     public class ModifierHandler

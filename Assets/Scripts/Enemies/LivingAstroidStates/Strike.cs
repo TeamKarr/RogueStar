@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chill : MonoBehaviour
+public class Strike : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

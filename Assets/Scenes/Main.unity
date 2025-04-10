@@ -22260,10 +22260,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1623188139}
   - component: {fileID: 1623188138}
-  - component: {fileID: 1623188140}
-  - component: {fileID: 1623188137}
-  - component: {fileID: 1623188136}
+  - component: {fileID: 1623188143}
   - component: {fileID: 1623188142}
+  - component: {fileID: 1623188136}
   - component: {fileID: 1623188141}
   m_Layer: 0
   m_Name: Living Astroid
@@ -22286,21 +22285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultState: 0
   CurrentState: 0
---- !u!114 &1623188137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623188135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6f0ace9b554117459faafa58be2562f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 580945963}
-  speedAcceleration: 2
-  maxSpeed: 4
+  CurrentStateLabel: 
 --- !u!212 &1623188138
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22370,19 +22355,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1623188140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623188135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49ed20acd15a7e4498ed1da0398dab85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 580945963}
 --- !u!50 &1623188141
 Rigidbody2D:
   serializedVersion: 4
@@ -22419,54 +22391,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1623188135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14c80317bbcb29f4d816d3df8124f2ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 424afb54d2e4d0b4c8330323c72b5b68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useRadius: 1
-  radius: 15
-  player: {fileID: 580945966}
-  onCollisionEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1623188136}
-        m_TargetAssemblyTypeName: EnemyBrain, Assembly-CSharp
-        m_MethodName: setState
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onCollisionExit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1623188136}
-        m_TargetAssemblyTypeName: EnemyBrain, Assembly-CSharp
-        m_MethodName: setState
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1623188136}
-        m_TargetAssemblyTypeName: EnemyBrain, Assembly-CSharp
-        m_MethodName: stopMoving
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  Player: {fileID: 580945963}
+  maxSpeed: 10
+  strikeAcceleration: 5
+  requiredEyeLostTime: 3
+--- !u!114 &1623188143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623188135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b473f8eeeaaffa438a669d85a326c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 580945963}
+  requiredEyeContactTime: 3
 --- !u!1 &1668987899
 GameObject:
   m_ObjectHideFlags: 0

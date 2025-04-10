@@ -1,3 +1,4 @@
+using System;
 using Unity.Collections;
 using UnityEngine;
 
@@ -16,12 +17,14 @@ public class EnemyBrain : MonoBehaviour
 
     [ReadOnly] public int CurrentState = 0;
 
+    [ReadOnly] public string CurrentStateLabel;
+
     private State[] states;
 
 
     void Start()
     {
-        CurrentState = DefaultState;
+        
         states = GetComponents<State>();
         if (states != null)
         {
@@ -29,7 +32,11 @@ public class EnemyBrain : MonoBehaviour
             {
                 Debug.Log(state);
             }
+        } else
+        {
+            Debug.Log("did not find any states");
         }
+        setState(DefaultState); // set default state
     }
 
     // Update is called once per frame
@@ -45,7 +52,30 @@ public class EnemyBrain : MonoBehaviour
     public void setState(int i)
     {
         if (i >= 0 && i < states.Length)
+        {
             CurrentState = i;
+            Debug.Log(i + states[i].GetType().ToString());
+            CurrentStateLabel = states[i].GetType().ToString();
+        }
+            
+    }
+
+    public void setState<T>() where T : State
+    {
+        int i = indexOf<T>();
+        setState(i);
+    }
+
+    private int indexOf<T>() where T : State
+    {
+        for (int i = 0; i < states.Length; i++)
+        {
+            if (states[i].GetType() == typeof(T))
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public abstract class State : MonoBehaviour
