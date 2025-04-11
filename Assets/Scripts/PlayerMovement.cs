@@ -8,11 +8,12 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     Rigidbody2D rb;
     AttributeManager attributes;
-    Attribute maxSpeed;
+    public float maxSpeed = 10f;
     void Start()
     {
         attributes = GetComponent<AttributeManager>();
-        maxSpeed = attributes.getAttribute("MaxSpeed");
+        //maxSpeed = attributes.getAttribute("MaxSpeed");
+        
 
         rb = GetComponent<Rigidbody2D>();
     }
@@ -35,10 +36,10 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //Debug.Log("Speed: " + rb.velocity.magnitude + " max: " + maxSpeed.getvalue());
-        if (rb.velocity.magnitude > maxSpeed.getvalue())
+        if (rb.velocity.magnitude > maxSpeed)
         {
             // Clamp the velocity magnitude
-            rb.velocity = rb.velocity.normalized * maxSpeed.getvalue();
+            rb.velocity = rb.velocity.normalized * maxSpeed;
         }
     }
 }

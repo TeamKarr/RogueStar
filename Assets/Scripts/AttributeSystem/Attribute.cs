@@ -13,7 +13,7 @@ public class Attribute : MonoBehaviour
     //[ReadOnly]
     public float currentValue = 0;
 
-    public List<AttributeModifier> modifiers = new();
+    public HashSet<AttributeModifier> modifiers = new ();
 
     private void Start()
     {
